@@ -48,6 +48,11 @@
     {
         console.log('Contingut:',laVariable)
         console.log('Tipus:',typeof(laVariable))
+        
+        let esArray = Array.isArray(laVariable)
+        console.log('És array:',esArray)
+
+       
     }
 
     var variable1 = "Jordi"
@@ -67,6 +72,34 @@
     mostraInformacio(suma)
 
     suma2(20,11)
+
+    console.clear()
+
+
+
+
+
+
+
+
+    // Exemple d'array
+    var noms = ["jordi","pere","laura"]
+    // Exemple d'objecte
+    var persona ={
+        nom:'Jordi',
+        dni:'404040404H'
+    }
+    mostraInformacio(noms)
+    mostraInformacio(persona)
+
+
+
+
+
+
+
+
+
 
 
 </script>
