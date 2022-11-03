@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var coses = ["Jordi",3,"Laura",2,3,"Dani","Sandra",3,6]
+
+        var numeroDeTextes = 0;
+        var numeroDeNumeros = 0;
+        var noms =[]; // Array
+        var numeros = [];  // Array
+        // Contar els textes
+        // Contar els numeros
+
+        function contaTextes(el,pos){
+            // Mirem el tipus de la variable el
+            var tipus = typeof(el)
+            // Comparem
+            if(tipus == 'string'){
+                numeroDeTextes = numeroDeTextes + 1
+            }
+        }
+
+        function contaNumeros(el,pos){
+            // Mirem el tipus
+            var tipus = typeof(el)
+            if(tipus == 'number'){
+                numeroDeNumeros++
+            }
+        }
+
+        function creaArrays(el,pos){
+            var tipus = typeof(el)
+            if(tipus == 'number'){
+                numeros.push(el)
+            }
+            else if (tipus == 'string'){
+                noms.push(el)
+            }
+        }
+        
+        coses.forEach(contaTextes)
+        coses.forEach(contaNumeros)
+        coses.forEach(creaArrays)
+
+        console.log(numeroDeTextes,numeroDeNumeros)
+        console.log(noms,numeros)
+
+        /*
+        coses.forEach(function(element,posicio){
+            // Mirem si es un string
+            if(typeof(element) == 'string'){
+                // Augmentem contador
+                numeroDeTextes = numeroDeTextes +1
+            }
+        })
+        */
+        
+        // Fer dos arrays, un amb els texts i l'altra
+        // amb els numeros 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
