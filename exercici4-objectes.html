@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cotxe">valor inicial</div>
+    <script>
+        //console.log(document.getElementById("cotxe").innerHTML)
+        document.getElementById("cotxe").innerHTML= "Fiat 500"
+
+        // Crear un objecte
+        var jordi = {}
+        jordi.nom = "Jordi"
+        jordi.edat = 30
+        jordi.descripcio = function(){
+            return this.nom + "té "+this.edat + " anys"
+        }
+
+        var joan = {
+            nom:"joan",
+            cognom:"perez",
+            edat:30,
+            descripcio: function(){
+                return this.nom + "té "+this.edat + " anys"
+            },
+            nomComplet(){
+                return this.nom + " "+this.cognom
+            }
+        }
+
+        console.log(
+            joan.nomComplet(),
+            joan.edat
+        )
+
+        /// FER 1 objectes que representin tres cotxes
+        // ha de tenir les propietats:
+        // Marca
+        // Model
+        // Any 
+        // Preu
+        // ha de tenir 3 metodes
+        // descripcio - Text amb totes les propietats del cotxe
+        // esClassic (ens ha de tornar si te mes de 25 anys)
+        // edat (edat del cotxe)
+        // valor (el valor del cotxe) preu/anys del cotxe
+
+        function calcularSeguro(preu, any){
+            return (2+preu)/any
+        }
+
+        var cotxe = {
+            marca:"renault",
+            model:"4L",
+            any:"1990",
+            preu:"9000",
+            edat:function(){
+                return 2023-this.any
+            },
+            esClassic(){
+                if(this.edat()>25){
+                    return true
+                }else{
+                    return false
+                }
+            },
+            valor:function(){
+                return this.preu/this.edat()
+            },
+            descripcio:function(){
+                return "El cotxe és de la marca "+this.marca + "i model "+this.model
+                +", te "+ this.edat()+ " anys"
+            },
+            crearDivPerWeb:function(){
+                //document.write("El cotxe es de la marca "+this.marca)
+                
+                return "<div>"
+                   + "<h1>"+this.marca+"</h1>"
+                   + "<p>"+this.descripcio()+"</p"
+                   + "</div>"
+                    
+            }
+        }
+        console.log(cotxe.crearDivPerWeb())
+        document.getElementById("cotxe").innerHTML = cotxe.crearDivPerWeb() 
+
+        console.log(
+            cotxe.any,
+            "El cotxe te "+ cotxe.edat() + " anys",
+            "El cotxe és classic "+ cotxe.esClassic(),
+            "El valor del cotxe és " + cotxe.valor(),
+            "El seguro costa" + calcularSeguro(cotxe.preu,cotxe.any)
+        )
+
+
+    </script>
+</body>
+</html>
